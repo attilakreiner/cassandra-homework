@@ -8,7 +8,7 @@ WHERE invoice_id = 'INV-02';
 
 -- Select all articles of INV-01, articles should be sorted by name
 SELECT line_id, article_name, article_price
-FROM invoice
+FROM invoice_by_article_name
 WHERE invoice_id = 'INV-01'
 ORDER BY article_name;
 
