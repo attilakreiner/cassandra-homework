@@ -5,6 +5,6 @@ SELECT DISTINCT invoice_id, invoice_date, invoice_address FROM invoice;
 
 -- Fix the CQL so that articles are sorted by article name in a descending order
 SELECT line_id, article_name, article_price
-FROM invoice_by_article_name
+FROM invoice
 WHERE invoice_id = 'INV-01'
 ORDER BY article_name DESC;

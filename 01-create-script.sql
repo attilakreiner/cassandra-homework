@@ -23,9 +23,4 @@ CREATE table invoice
   PRIMARY KEY (invoice_id, article_name, line_id)
 );
 
-CREATE MATERIALIZED VIEW invoice_by_article_name
-AS SELECT line_id, article_name, article_price FROM invoice WHERE invoice_id IS NOT NULL AND line_id IS NOT NULL AND article_name IS NOT NULL
-PRIMARY KEY (invoice_id, article_name, line_id)
-WITH CLUSTERING ORDER BY (article_name DESC);
-
 CREATE INDEX ON invoice (invoice_date);
