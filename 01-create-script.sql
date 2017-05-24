@@ -20,11 +20,11 @@ CREATE table invoice
   line_id int,
   article_name text,
   article_price decimal,
-  PRIMARY KEY (invoice_id, line_id)
+  PRIMARY KEY (invoice_id, article_name, line_id)
 );
 
 CREATE MATERIALIZED VIEW invoice_by_article_name
-AS SELECT line_id, article_name, article_price FROM invoice WHERE line_id IS NOT NULL AND article_name IS NOT NULL
+AS SELECT line_id, article_name, article_price FROM invoice WHERE invoice_id IS NOT NULL AND line_id IS NOT NULL AND article_name IS NOT NULL
 PRIMARY KEY (invoice_id, article_name, line_id)
 WITH CLUSTERING ORDER BY (article_name DESC);
 
